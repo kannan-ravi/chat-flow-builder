@@ -8,9 +8,13 @@ import type { TextMessageNode } from "../../../types/nodes";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { MdDelete, MdOutlineMessage } from "react-icons/md";
 
-function TextNode({ data }: NodeProps<TextMessageNode>) {
+function TextNode({ data, selected }: NodeProps<TextMessageNode>) {
   return (
-    <div className="rounded-lg overflow-hidden shadow-lg">
+    <div
+      className={`rounded-lg overflow-hidden shadow-lg border-2 ${
+        selected ? " border-cyan-400" : "border-transparent"
+      }`}
+    >
       <div className="flex items-center gap-2 bg-cyan-100 px-4 py-2 justify-between">
         <div className="flex items-center gap-2">
           <MdOutlineMessage className="text-md" />

@@ -7,6 +7,7 @@ import {
   type ReactFlowInstance,
   type IsValidConnection,
   MarkerType,
+  type NodeMouseHandler,
 } from "@xyflow/react";
 
 import "@xyflow/react/dist/style.css";
@@ -27,6 +28,7 @@ type FlowPropsTypes = {
   isValid: IsValidConnection<AppEdge>;
   reactFlowWrapperRef: React.RefObject<HTMLDivElement | null>;
   onInit: (instance: ReactFlowInstance<AppNode, AppEdge>) => void;
+  onNodeClick: NodeMouseHandler<AppNode>;
 };
 
 export default function Flow({
@@ -38,6 +40,7 @@ export default function Flow({
   isValid,
   reactFlowWrapperRef,
   onInit,
+  onNodeClick,
 }: FlowPropsTypes) {
   const { isOver, setNodeRef } = useDroppable({
     id: "droppable",
@@ -75,6 +78,7 @@ export default function Flow({
         isValidConnection={isValid}
         onInit={onInit}
         defaultEdgeOptions={defaultEdgeOptions}
+        onNodeClick={onNodeClick}
       >
         <Controls />
       </ReactFlow>
