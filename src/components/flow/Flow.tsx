@@ -6,6 +6,7 @@ import {
   type OnConnect,
   type ReactFlowInstance,
   type IsValidConnection,
+  MarkerType,
 } from "@xyflow/react";
 
 import "@xyflow/react/dist/style.css";
@@ -42,6 +43,15 @@ export default function Flow({
     id: "droppable",
   });
 
+  const defaultEdgeOptions = {
+    markerEnd: {
+      type: MarkerType.ArrowClosed,
+      width: 20,
+      height: 20,
+      color: "#3d3d3d",
+    },
+  };
+
   return (
     <div
       ref={(el) => {
@@ -64,6 +74,7 @@ export default function Flow({
         onConnect={onConnect}
         isValidConnection={isValid}
         onInit={onInit}
+        defaultEdgeOptions={defaultEdgeOptions}
       >
         <Controls />
       </ReactFlow>

@@ -9,6 +9,7 @@ import {
   type ReactFlowInstance,
   type Connection,
   type IsValidConnection,
+  MarkerType,
 } from "@xyflow/react";
 
 import Header from "./components/layout/Header";
@@ -73,13 +74,15 @@ function App() {
         y: finalClientY - reactFlowBounds.top,
       });
 
+      const nodeId = `node-${Date.now()}`;
+
       setNodes((nds) => [
         ...nds,
         {
-          id: `node-${Date.now()}`,
+          id: nodeId,
           type: "text",
           position,
-          data: { label: "Dropped Node" },
+          data: { label: `Node ${nodes.length + 1}` },
         },
       ]);
     }
