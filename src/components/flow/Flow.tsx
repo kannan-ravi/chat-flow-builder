@@ -5,6 +5,7 @@ import {
   type OnEdgesChange,
   type OnConnect,
   type ReactFlowInstance,
+  type IsValidConnection,
 } from "@xyflow/react";
 
 import "@xyflow/react/dist/style.css";
@@ -22,6 +23,7 @@ type FlowPropsTypes = {
   edges: AppEdge[];
   onEdgesChange: OnEdgesChange<AppEdge>;
   onConnect: OnConnect;
+  isValid: IsValidConnection<AppEdge>;
   reactFlowWrapperRef: React.RefObject<HTMLDivElement | null>;
   onInit: (instance: ReactFlowInstance<AppNode, AppEdge>) => void;
 };
@@ -32,6 +34,7 @@ export default function Flow({
   edges,
   onEdgesChange,
   onConnect,
+  isValid,
   reactFlowWrapperRef,
   onInit,
 }: FlowPropsTypes) {
@@ -59,6 +62,7 @@ export default function Flow({
         edgeTypes={edgeTypes}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
+        isValidConnection={isValid}
         onInit={onInit}
       >
         <Controls />

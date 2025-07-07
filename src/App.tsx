@@ -7,6 +7,8 @@ import {
   type OnConnect,
   ReactFlowProvider,
   type ReactFlowInstance,
+  type Connection,
+  type IsValidConnection,
 } from "@xyflow/react";
 
 import Header from "./components/layout/Header";
@@ -29,6 +31,17 @@ function App() {
   const onConnect: OnConnect = useCallback(
     (connection) => setEdges((eds) => addEdge(connection, eds as AppEdge[])),
     [setEdges]
+  );
+
+  const isValid: IsValidConnection<AppEdge> = useCallback(
+    (connection: Connection | AppEdge) => {
+      const existingConnectionsFromSourceNode = edges.filter(
+        (edge) => edge.source === connection.source
+      );
+
+      return existingConnectionsFromSourceNode.length === 0;
+    },
+    [edges]
   );
 
   function handleDragEnd(event: DragEndEvent) {
@@ -86,6 +99,7 @@ function App() {
               onConnect={onConnect}
               reactFlowWrapperRef={reactFlowWrapperRef}
               onInit={(instance) => (reactFlowInstance.current = instance)}
+              isValid={isValid}
             />
             <Sidebar />
           </DndContext>
