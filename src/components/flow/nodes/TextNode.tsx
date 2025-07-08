@@ -22,7 +22,6 @@ function TextNode({ data, selected }: NodeProps<TextMessageNode>) {
         </div>
         <div className="flex items-center gap-2">
           <IoLogoWhatsapp className="text-lg text-green-500 cursor-pointer" />
-          <MdDelete className="text-lg text-red-500 cursor-pointer" />
         </div>
       </div>
       <p className="text-smxs px-4 py-2 bg-white">{data.label}</p>
