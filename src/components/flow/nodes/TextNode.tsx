@@ -2,11 +2,10 @@ import {
   Handle,
   Position,
   type NodeProps,
-  type NodeTypes,
 } from "@xyflow/react";
 import type { TextMessageNode } from "../../../types/nodes";
 import { IoLogoWhatsapp } from "react-icons/io";
-import { MdDelete, MdOutlineMessage } from "react-icons/md";
+import { MdOutlineMessage } from "react-icons/md";
 
 function TextNode({ data, selected }: NodeProps<TextMessageNode>) {
   return (
@@ -32,7 +31,3 @@ function TextNode({ data, selected }: NodeProps<TextMessageNode>) {
 }
 
 export default TextNode;
-
-export const nodeTypes = {
-  text: TextNode,
-} satisfies NodeTypes;

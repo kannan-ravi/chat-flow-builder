@@ -1,4 +1,5 @@
-import type { BuiltInNode, Node } from "@xyflow/react";
+import type { BuiltInNode, Node, NodeTypes } from "@xyflow/react";
+import TextNode from "../components/flow/nodes/TextNode";
 
 export type TextMessageNode = Node<
   { label?: string; },
@@ -6,3 +7,7 @@ export type TextMessageNode = Node<
 >;
 
 export type AppNode = BuiltInNode | TextMessageNode;
+
+export const nodeTypes = {
+  text: TextNode,
+} satisfies NodeTypes;

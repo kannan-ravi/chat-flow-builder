@@ -10,7 +10,6 @@ import {
   type Connection,
   type IsValidConnection,
   type NodeMouseHandler,
-  getConnectedEdges,
 } from "@xyflow/react";
 
 import Header from "./components/layout/Header";
@@ -18,7 +17,7 @@ import Sidebar from "./components/layout/Sidebar";
 import Flow from "./components/flow/Flow";
 import { initialNodes } from "./constants/initial-node";
 import { initialEdges } from "./constants/initial-edge";
-import type { AppNode, TextMessageNode } from "./types/nodes";
+import type { AppNode } from "./types/nodes";
 import type { AppEdge } from "./types/edge";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import Toast from "./components/ui/Toast";
