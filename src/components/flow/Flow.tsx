@@ -12,7 +12,7 @@ import {
 
 import "@xyflow/react/dist/style.css";
 
-import { nodeTypes } from "./nodes/TextNode";
+import { nodeTypes } from "../../types/nodes";
 import { edgeTypes } from "../../constants/initial-edge";
 
 import { useDroppable } from "@dnd-kit/core";

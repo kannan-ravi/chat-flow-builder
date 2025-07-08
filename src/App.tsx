@@ -94,7 +94,7 @@ function App() {
   }
 
   const onNodeClick: NodeMouseHandler<AppNode> = useCallback(
-    (event, node) => {
+    (_event, node) => {
       setNodes((nds) => nds.map((n) => ({ ...n, selected: n.id === node.id })));
       setSelectedNodeText(node.data.label || "");
       setSelectedNode(node);
@@ -106,7 +106,7 @@ function App() {
     if (selectedNode?.type === "text") {
       setNodes((prev) =>
         prev.map((n) =>
-          selectedNode.id === n.id
+          selectedNode.id === n.id && n.type === "text"
             ? { ...n, data: { ...n.data, label: selectedNodeText } }
             : n
         )
@@ -137,7 +137,10 @@ function App() {
 
     if (unconnectedNodes.length > 0) {
       toast.error(
-        <Toast heading="Flow is invalid" description="Cannot be saved. Please check." />,
+        <Toast
+          heading="Flow is invalid"
+          description="Cannot be saved. Please check."
+        />,
         {
           position: "top-center",
           autoClose: 3000,
@@ -151,7 +154,10 @@ function App() {
       );
     } else {
       toast.success(
-        <Toast heading="Flow is valid" description="It's saved. You can now proceed." />,
+        <Toast
+          heading="Flow is valid"
+          description="It's saved. You can now proceed."
+        />,
         {
           position: "top-center",
           autoClose: 3000,
