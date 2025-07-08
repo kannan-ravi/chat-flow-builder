@@ -10,6 +10,7 @@ import {
   type Connection,
   type IsValidConnection,
   type NodeMouseHandler,
+  getConnectedEdges,
 } from "@xyflow/react";
 
 import Header from "./components/layout/Header";
@@ -19,6 +20,8 @@ import { initialNodes } from "./constants/initial-node";
 import { initialEdges } from "./constants/initial-edge";
 import type { AppNode, TextMessageNode } from "./types/nodes";
 import type { AppEdge } from "./types/edge";
+import { Bounce, toast, ToastContainer } from "react-toastify";
+import Toast from "./components/ui/Toast";
 
 function App() {
   const [nodes, setNodes, onNodesChange] = useNodesState<AppNode>(initialNodes);
@@ -121,9 +124,52 @@ function App() {
     setNodes((prev) => prev.map((n) => ({ ...n, selected: false })));
   }, [setNodes]);
 
+  const onSaveChanges = useCallback(() => {
+    const connectedNodesIds = new Set();
+
+    edges.forEach((edge) => {
+      connectedNodesIds.add(edge.source);
+      connectedNodesIds.add(edge.target);
+    });
+
+    const unconnectedNodes = nodes.filter(
+      (node) => !connectedNodesIds.has(node.id)
+    );
+
+    if (unconnectedNodes.length > 0) {
+      toast.error(
+        <Toast heading="Flow is invalid" description="Cannot be saved. Please check." />,
+        {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "light",
+          transition: Bounce,
+        }
+      );
+    } else {
+      toast.success(
+        <Toast heading="Flow is valid" description="It's saved. You can now proceed." />,
+        {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "light",
+          transition: Bounce,
+        }
+      );
+    }
+  }, [nodes, edges]);
+
   return (
     <>
-      <Header />
+      <Header onSaveChanges={onSaveChanges} />
       <main className="h-[calc(100vh-56px)] flex">
         <ReactFlowProvider>
           <DndContext onDragEnd={handleDragEnd}>
@@ -147,6 +193,7 @@ function App() {
             />
           </DndContext>
         </ReactFlowProvider>
+        <ToastContainer />
       </main>
     </>
   );
