@@ -1,4 +1,4 @@
-import { FaCheckCircle } from "react-icons/fa";
+import { FaCheckCircle, FaGithub } from "react-icons/fa";
 import Logo from "/logo.jpg";
 
 type HeaderPropsType = {
@@ -17,14 +17,22 @@ function Header({ onSaveChanges }: HeaderPropsType) {
         </div>
       </div>
 
-      <button
-        className="border cursor-pointer transition duration-300 outline-0 flex items-center gap-2 bg-gray-200 text-black border-gray-200 px-4 py-1.5 text-base"
-        type="button"
-        onClick={onSaveChanges}
-      >
-        <FaCheckCircle />
-        Save Changes
-      </button>
+      <div className="flex items-center gap-3">
+        <a
+          href="https://github.com/kannan-ravi/chat-flow-builder"
+          target="_blank"
+        >
+          <FaGithub className="text-2xl" />
+        </a>
+        <button
+          className="border cursor-pointer transition duration-300 outline-0 flex items-center gap-2 bg-gray-200 text-black border-gray-200 px-4 py-1.5 text-base"
+          type="button"
+          onClick={onSaveChanges}
+        >
+          <FaCheckCircle className="text-xl" />
+          Save Changes
+        </button>
+      </div>
     </header>
   );
 }

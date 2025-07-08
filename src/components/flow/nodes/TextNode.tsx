@@ -15,7 +15,7 @@ function TextNode({ data, selected }: NodeProps<TextMessageNode>) {
         selected ? " border-cyan-400" : "border-transparent"
       }`}
     >
-      <div className="flex items-center gap-2 bg-cyan-100 px-4 py-2 justify-between">
+      <div className="flex items-center gap-8 bg-cyan-100 px-4 py-2 justify-between">
         <div className="flex items-center gap-2">
           <MdOutlineMessage className="text-md" />
           <h3 className="text-md font-medium">Send Message</h3>
