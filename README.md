@@ -1,69 +1,98 @@
-# React + TypeScript + Vite
+# 🤖 Chatbot Flow Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple chatbot flow builder built using React and React Flow, designed to make future node expansion easy and intuitive.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Check out the live version here: [Chatbot Flow Builder](https://chat-flow-builder-jade.vercel.app/)
 
-## Expanding the ESLint configuration
+## 📁 Project Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 💬 Text Nodes – Build conversations by dragging text messages into the flow.
+- 🔗 Edge Connection – Connect nodes with edges to set their execution sequence.
+- 🧰 Settings Panel – Edit text messages.
+-
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📦 Tech Stack Used
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+<table>
+  <thead>
+    <tr>
+      <th>Technology</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>React</td>
+      <td>A JavaScript library for building user interfaces.</td>
+    </tr>
+    <tr>
+      <td>TypeScript</td>
+      <td>A superset of JavaScript that compiles to clean JavaScript output.</td>
+    </tr>
+    <tr>
+      <td>Tailwind CSS</td>
+      <td>A utility-first CSS framework for rapid UI development.</td>
+    </tr>
+    <tr>
+      <td>React Flow</td>
+      <td>A library for building interactive node-based graphs.</td>
+    </tr>
+    <tr>
+      <td>DND Kit</td>
+      <td>A set of React hooks that make it easy to create draggable and droppable elements.</td>
+    </tr>
+    <tr>
+      <td>React Icons</td>
+      <td>A library of React components that implement popular icons.</td>
+    </tr>
+    <tr>
+      <td>React Toastify</td>
+      <td>A simple yet powerful React notification library.</td>
+    </tr>
+    <tr>
+      <td>ESLint</td>
+      <td>A linter for JavaScript and TypeScript.</td>
+    </tr>
+    <tr>
+      <td>Vite</td>
+      <td>A modern web development build tool.</td>
+    </tr>
+  </tbody>
+</table>
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📁 Project Structure
+
+```
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── constants/
+│   ├── types/
+│   └── utils/
+├── README.md
+├── package.json
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Clone the repository: `git clone https://github.com/kannan-ravi/chat-flow-builder.git`
+2. Install the dependencies: `npm install`
+3. Start the development server: `npm run dev`
+4. Open the app in your web browser: `http://localhost:3000`
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🔧 Building the App
+
+1. Run `npm run build` to build the app for production.
+2. Run `npm run preview` to preview the production build.
+
+## 🧹 Linting and Formatting
+
+1. Run `npm run lint` to lint the code.
+
+## 🌐 Environment Used
+
+- **Node.js v22.15.0**
+- **npm v10.9.2**
